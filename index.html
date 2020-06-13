@@ -1,678 +1,151 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Roteiro Live-Python</title><style>
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-.select-value-color-default { background-color: rgba(206,205,202,0.5); }
-.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
-.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
-.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
-.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
-.select-value-color-green { background-color: rgba(0,135,107,0.2); }
-.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
-.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
-.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
-.select-value-color-red { background-color: rgba(255,0,26,0.2); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="c1bba646-130a-4d36-8d89-88654ede6f58" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 21.29%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Roteiro%20Live%20Python%20c1bba646130a4d368d8988654ede6f58/pngbarn.png"/></div><h1 class="page-title">Roteiro Live-Python</h1></header><div class="page-body"><hr id="903eb81b-d9c9-4167-add7-99bb50055598"/><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cc6aa215-3d06-433f-9e28-6f8df8f1c4c7"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%">Referências: https://docs.python.org/pt-br/3/tutorial/,
-                    https://edisciplinas.usp.br/mod/folder/view.php?id=36176
-</div></figure><h3 id="b7c1a471-ff51-4b63-b3d9-09d0d7b6c8c4" class="">Introdução</h3><p id="3c114999-ae47-4249-ac80-8ae17af0d5ff" class="">
-</p><ul id="0449c7eb-b74b-4aad-9b36-672b2dadceae" class="bulleted-list"><li>Módulos e formas de execução<pre id="89ff17d2-1700-4ace-882f-9e68870e2b36" class="code"><code>python3 -m &quot;module&quot; for execute modules 
-		   or
-python3 -c &quot;COMANDO/CÓDIGO&quot;</code></pre><p id="e559b898-3ca9-4b92-aa0f-dc819eac5c8a" class="">
-</p></li></ul><h3 id="b1610d2e-89f3-487b-8f53-e93ced72854a" class="">Bibliotecas</h3><p id="a0a19339-0281-4173-95b1-e0b7c2d61b92" class=""><div class="indented"><blockquote id="aa6c84d8-5bdf-43f6-bbfd-032118c8b366" class="">Bibliotecas são conjuntos de funções criadas para resolver determinado problema</blockquote><p id="26c4e23b-2275-4d07-a2a5-310837493a65" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c9ec38be-0e72-46df-a710-fdcbdf76fba3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Qual a diferença entre uma biblioteca e um framework
-
-Frameworks são conjunto de estruturas [modelos de projeto, funções, rotinas pré-definidas]
-
-Fica mais fácil abstrair quando se compara com um códigos de programadores que já passaram pelos mesmo problema que você e estão tiveram a boa vontade de agrupar essas repetições e disponibilzar para os próximos. Ex: Django</div></figure><p id="69d79da3-2ba6-4282-9fb1-714c41ac6658" class="">
-</p><p id="afcd51b6-7e04-419a-af86-1022eb773bfd" class="">
-</p></div></p><ul id="3c3b6d2e-30d9-4c18-be01-e3b5aeed8cf8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bibliotecas Importantes</span><ul id="591314c5-a314-42eb-b973-f9f732905cec" class="toggle"><li><details open=""><summary>sys</summary></details></li></ul><ul id="3534a814-9eef-4f07-9590-0136ba776354" class="toggle"><li><details open=""><summary>os</summary></details></li></ul><ul id="1a0b0604-7731-414a-a6a9-1fc8076ac7b5" class="toggle"><li><details open=""><summary>smtpmail</summary></details></li></ul><ul id="f9edb697-20c2-4b07-a247-1cb1cd1848ba" class="toggle"><li><details open=""><summary></summary></details></li></ul><p id="cfe765b0-48d9-46d6-80f7-73163978886b" class="">
-</p></li></ul><ul id="9c80fbcc-2378-4784-ba1a-fb133666dcd7" class="bulleted-list"><li>Conceitos básicos<ul id="59f8341d-2d7a-488f-8030-e24e641926ec" class="bulleted-list"><li>Tipagem dinâmica</li></ul><ul id="a312ef49-305c-4eda-8e76-b8f0108b689d" class="toggle"><li><details open=""><summary>Tipos principais</summary><ul id="87ed6e79-5053-4866-ae01-670c0d521f39" class="toggle"><li><details open=""><summary>Int</summary></details></li></ul><ul id="3d3411e2-935d-47d4-afc5-010e0e013365" class="toggle"><li><details open=""><summary>Float</summary><p id="6a7b31f1-c771-4d81-a88f-1b0806cda867" class="">
-</p></details></li></ul><ul id="6edffb05-2157-4a00-b558-9dc5f21bfe8e" class="toggle"><li><details open=""><summary>String</summary></details></li></ul><ul id="0678385c-d07b-40fe-9732-999caaf880dd" class="toggle"><li><details open=""><summary>Tipos &#x27;Complexos&#x27;</summary><ul id="93c6570c-b0be-4513-9c81-b847d43e8f34" class="toggle"><li><details open=""><summary>Dic</summary></details></li></ul><ul id="4a9327cd-9904-4014-8fd3-af0638311d91" class="toggle"><li><details open=""><summary>Array</summary></details></li></ul><ul id="cffa03d6-813b-4e60-97d0-4fbaa675cbf9" class="toggle"><li><details open=""><summary>Tuple</summary></details></li></ul></details></li></ul></details></li></ul></li></ul><p id="ba609fec-d0cb-4ff7-9737-9772d4ad3b0b" class="">
-</p><p id="eea1ad1b-0c0b-4b4a-b75f-29e949e3db99" class="">
-</p><h3 id="ad223c46-0a67-44c7-b242-e4427b42a2a2" class="">Objects</h3><p id="d5d395e2-20d5-402f-a1f2-3a8fd8d0d09d" class="">
-</p><ul id="4bb0c66b-bf8a-4525-ae82-9c4c729c250f" class="bulleted-list"><li>&quot;Formas de bolo&quot;</li></ul><p id="aeac06eb-7eb7-4c4c-aac3-a3ddff74da39" class="">
-</p><pre id="3e14cf5f-8069-4e0d-adfe-4c070044f0df" class="code"><code>def cria_conta(numero, titular, saldo, limite):
-    conta = {&quot;numero&quot;: numero, &quot;titular&quot;: titular, &quot;saldo&quot;: saldo, &quot;limite&quot;: limite}
-    return conta</code></pre><p id="4c7c6e6a-c403-43f7-89f2-d942f9e8fc48" class="">
-</p><h2 id="0a270967-5bfb-4652-834c-c1ec56a7255c" class="">Tratamento de dados</h2><p id="d41b5315-25df-4ef5-a894-5e0c3eeb5295" class="">
-</p><ul id="700769d2-6ba9-492b-b9ed-93cfaf94d821" class="bulleted-list"><li>Tá mas como eu deixo meu código de fato &#x27;inteligente ?&#x27;</li></ul><p id="da89fa8e-cbb8-4c94-b984-aac02832c892" class=""><div class="indented"><blockquote id="0070fa56-7302-4640-a52e-7a763b811544" class="">Antes de prosseguir, é nessesário saber algumas coisas.
-No Python não usamos &quot; ; &quot;, e as funções/estruturas de tratamento não são definidas com chaves;</blockquote><p id="0d06c980-b0a0-4c42-a5f0-d155f020081b" class="">
-</p><p id="3227e098-1958-4e8f-8c21-197706d139ac" class="">
-</p></div></p><p id="fae89dba-61d6-42ed-bca5-6ee77a551afe" class=""><div class="indented"><h3 id="fb2f6598-9054-43c2-95dc-e7b21486772d" class="">IF - ELSE (Estruras de decisão)</h3><p id="b1bdfcfd-be5d-429c-a28b-23fd76e4c402" class="">
-</p><p id="a8f046fb-d8f4-4ccc-9e14-428f51ffe154" class="">
-</p><pre id="bc1aaa7c-43da-4bf5-8379-992d2264038c" class="code"><code>color = &#x27;blue&#x27;
-if color === &quot;blue&quot;:
-    print(&#x27;tu já sabe que é igual ne menó&#x27;)
-else:
-    print(&#x27;tu fez alguma cagada...&#x27;)</code></pre><p id="f7739111-0d88-4980-9450-281082ce9ea8" class="">
-</p><p id="09e347fd-474a-4e9e-90cd-909419bdf97b" class="">
-</p><h3 id="6c9a8313-cd37-4761-9e42-3a715431f732" class="">FOR</h3><p id="adca1d73-9e6b-46ca-969e-3c4f6d4bb3e2" class="">
-</p><pre id="065b6263-0881-41ce-a443-a506b3b9a2e1" class="code"><code>i = [1,2,3,4,5,6]
-for index in i:
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>README.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Roteiro_LivePython_0"></a>Roteiro Live-Python</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="3">Referências: <a href="https://docs.python.org/pt-br/3/tutorial/">https://docs.python.org/pt-br/3/tutorial/</a>, <a href="https://edisciplinas.usp.br/mod/folder/view.php?id=36176">https://edisciplinas.usp.br/mod/folder/view.php?id=36176</a></p>
+<h2 class="code-line" data-line-start=4 data-line-end=5><a id="Introduo_4"></a>Introdução</h2>
+<h3 class="code-line" data-line-start=6 data-line-end=7><a id="Instalao_6"></a>Instalação</h3>
+<h3 class="code-line" data-line-start=8 data-line-end=9><a id="Linux_8"></a>Linux</h3>
+<pre><code class="has-line-data" data-line-start="11" data-line-end="25" class="language-bash">Geralmente o python vem instalado no Linux, por padrão
+com a versão <span class="hljs-number">2.7</span>. 
+Na live vamos usar a versão <span class="hljs-number">3.7</span>
+
+Então verifique a versão <span class="hljs-keyword">do</span> seu python com: 
+
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b9cbccd8d7f9cad1dcd5dbc0">[email&#160;protected]</a> ~$ python3 --version ou python --version
+
+Se não tiver instalado ou <span class="hljs-keyword">for</span> menor <span class="hljs-number">3.6</span> digite 
+os seguintes comandos para instalação:
+
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb999e8a85ab98838e878992">[email&#160;protected]</a> ~$ sudo apt-get update
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6a4a3b7b896a5beb3bab4af">[email&#160;protected]</a> ~$ sudo apt-get install python3.<span class="hljs-number">7</span>
+</code></pre>
+<h3 class="code-line" data-line-start=26 data-line-end=27><a id="Windows_26"></a>Windows</h3>
+<pre><code class="has-line-data" data-line-start="29" data-line-end="47" class="language-bash">Em geral os Windows mais antigos não vêm com python por padrão,
+você pode instalar da seguinte forma:
+
+Acessando o seguinte link:
+https://www.python.org/ftp/python/<span class="hljs-number">3.8</span>.<span class="hljs-number">3</span>/python-<span class="hljs-number">3.8</span>.<span class="hljs-number">3</span>-amd64.exe
+
+Caso houver algum erro, entre nesse site e faça download correto
+para você:
+https://www.python.org/downloads/windows/
+
+Depois é so next, next, 
+
+<span class="hljs-comment">#Importante, quando aparecer a seguinte tela durante a instalação, </span>
+<span class="hljs-comment">#você deve clicar na opção : Add Python 3.8 to PATH</span>
+
+e só dar next next
+
+</code></pre>
+<p class="has-line-data" data-line-start="48" data-line-end="49"><img src="https://raw.githubusercontent.com/ORuan/ORuan.github.io/master/Roteiro%20Live%20Python%20c1bba646130a4d368d8988654ede6f58/Untitled.png" alt=""></p>
+<p class="has-line-data" data-line-start="50" data-line-end="51">Módulos e formas de execução</p>
+<pre><code class="has-line-data" data-line-start="53" data-line-end="57" class="language-bash">python3 -m <span class="hljs-string">"module"</span> <span class="hljs-keyword">for</span> execute modules 
+           or
+python3 -c <span class="hljs-string">"COMANDO/CÓDIGO"</span>
+</code></pre>
+<p class="has-line-data" data-line-start="60" data-line-end="61">Conceitos básicos</p>
+<p class="has-line-data" data-line-start="62" data-line-end="63">Tipagem dinâmica</p>
+<ul>
+<li class="has-line-data" data-line-start="64" data-line-end="74">Tipos principais
+<ul>
+<li class="has-line-data" data-line-start="65" data-line-end="66">
+<p class="has-line-data" data-line-start="65" data-line-end="66">Int</p>
+</li>
+<li class="has-line-data" data-line-start="66" data-line-end="68">
+<p class="has-line-data" data-line-start="66" data-line-end="67">Float</p>
+</li>
+<li class="has-line-data" data-line-start="68" data-line-end="69">
+<p class="has-line-data" data-line-start="68" data-line-end="69">String</p>
+</li>
+<li class="has-line-data" data-line-start="69" data-line-end="74">
+<p class="has-line-data" data-line-start="69" data-line-end="70">Tipos ‘Complexos’</p>
+<ul>
+<li class="has-line-data" data-line-start="70" data-line-end="71">Dic</li>
+<li class="has-line-data" data-line-start="71" data-line-end="72">Array</li>
+<li class="has-line-data" data-line-start="72" data-line-end="74">Tuple(Me lembrem de explica rapaziada, é importante)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=74 data-line-end=75><a id="Objects_74"></a>Objects</h3>
+<p class="has-line-data" data-line-start="76" data-line-end="77">“Formas de bolo”</p>
+<pre><code class="has-line-data" data-line-start="79" data-line-end="83" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cria_conta</span><span class="hljs-params">(numero, titular, saldo, limite)</span>:</span>
+    conta = {<span class="hljs-string">"numero"</span>: numero, <span class="hljs-string">"titular"</span>: titular, <span class="hljs-string">"saldo"</span>: saldo, <span class="hljs-string">"limite"</span>: limite}
+    <span class="hljs-keyword">return</span> conta
+</code></pre>
+<h2 class="code-line" data-line-start=84 data-line-end=85><a id="Tratamento_de_dados_84"></a>Tratamento de dados</h2>
+<ul>
+<li class="has-line-data" data-line-start="86" data-line-end="88">Tá mas como eu deixo meu código de fato ‘inteligente ?’</li>
+</ul>
+<blockquote>
+<p class="has-line-data" data-line-start="88" data-line-end="90">Antes de prosseguir, é nessesário saber algumas coisas.<br>
+No Python não usamos &quot; ; &quot;, e as funções/estruturas de tratamento não são definidas com chaves;</p>
+</blockquote>
+<h3 class="code-line" data-line-start=91 data-line-end=92><a id="IF__ELSE_Estruras_de_deciso_91"></a>IF - ELSE (Estruras de decisão)</h3>
+<pre><code class="has-line-data" data-line-start="94" data-line-end="100" class="language-python">color = <span class="hljs-string">'blue'</span>
+<span class="hljs-keyword">if</span> color === <span class="hljs-string">"blue"</span>:
+    print(<span class="hljs-string">'tu já sabe que é igual ne menó'</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">'tu fez alguma cagada...'</span>)
+</code></pre>
+<h3 class="code-line" data-line-start=101 data-line-end=102><a id="FOR_101"></a>FOR</h3>
+<pre><code class="has-line-data" data-line-start="104" data-line-end="126" class="language-python">i = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]
+<span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> i:
    print(index)
-   #espera-se que retorne 1...2...3...4...5...6
+   <span class="hljs-comment">#espera-se que retorne:</span>
+   <span class="hljs-comment">#1</span>
+   <span class="hljs-comment">#2</span>
+   <span class="hljs-comment">#3</span>
+   <span class="hljs-comment">#4</span>
+   <span class="hljs-comment">#5</span>
+   <span class="hljs-comment">#6</span>
+<span class="hljs-comment">#----------------------Usando Range()----------------</span>
 
-#----------------------Usando Range()----------------
 
-i = 0
-for range(5):
+<span class="hljs-comment">#Sintaxe da função range( &lt;inicio&gt;, &lt;fim&gt;, &lt;passo&gt; )</span>
+i = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">for</span> range(<span class="hljs-number">5</span>):
     print(i)
-    i = i+1
+    i = i+<span class="hljs-number">1</span>
     
-</code></pre><p id="55d13340-77d6-413e-8e82-22db9dbf4ba8" class="">
-</p><p id="46c220b2-6a66-4476-9f99-260cefc144bd" class="">
-</p><p id="cebb3849-e492-4c92-bcbb-d65210f1b4bb" class="">
-</p><h2 id="6cd5859f-5a55-4ce6-8c2d-55d28fad155d" class="">Funções</h2><p id="8522ead9-8ab2-44ef-92fe-3d827cc32c9e" class="">
-</p><p id="c7a74684-9cd0-45a0-bb8d-28a718d069a8" class=""><div class="indented"><p id="31bc48d8-4d38-4281-95a8-0c1b16e794c7" class="block-color-gray_background">São objetos de primeira classe no Python, como um objeto qualquer. </p><h3 id="5090dbf1-b237-49d3-8251-5438f4d957c1" class="">Tá, e o que isso significa?</h3><p id="26c6da22-100c-4532-a69b-2816febf082b" class=""><div class="indented"><p id="a48a9ad1-5fd9-45ea-8b6e-d4caf7892e14" class="">Que podemos atribuir uma função a uma variável, podemos passar uma função como parâmetro para outra função, definir uma função dentro do escopo de outra, etc.</p></div></p><pre id="a20ee1f2-37e4-4ac0-a073-1335f317c0c5" class="code"><code>def doble(number):
-    return number*2
-    #espera-se que retorne 4 se eu number for 2</code></pre><p id="c20599a6-b572-427e-af0b-3e60df041e1e" class="">
-</p></div></p><p id="5c5b6aa2-a67f-4616-bbbb-6df9ff38e33e" class="">
-</p><p id="6c3f2151-7dc1-4b5f-b9bc-039bcf141b56" class="">
-</p></div></p></div></article></body></html>
+
+</code></pre>
+<h2 class="code-line" data-line-start=127 data-line-end=128><a id="Funes_127"></a>Funções</h2>
+<p class="has-line-data" data-line-start="129" data-line-end="130">São objetos de primeira classe no Python, como um objeto qualquer.</p>
+<h3 class="code-line" data-line-start=131 data-line-end=132><a id="T_e_o_que_isso_significa_131"></a>Tá, e o que isso significa?</h3>
+<p class="has-line-data" data-line-start="133" data-line-end="134">Que podemos atribuir uma função a uma variável, podemos passar uma função como parâmetro para outra função, definir uma função dentro do escopo de outra, etc.</p>
+<pre><code class="has-line-data" data-line-start="136" data-line-end="140" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doble</span><span class="hljs-params">(number)</span>:</span>
+    <span class="hljs-keyword">return</span> number*<span class="hljs-number">2</span>
+    <span class="hljs-comment">#espera-se que retorne 4 se eu number for 2    </span>
+</code></pre>
+<h2 class="code-line" data-line-start=143 data-line-end=144><a id="Para_lembrar_143"></a>Para lembrar</h2>
+<pre><code class="has-line-data" data-line-start="146" data-line-end="155" class="language-python">Se trantando de uma linguagem de altíssimo nível e de tipagem
+dinâmica, nao precisar definir o tipo não significa no entanto
+que quem desenvolve não precisa sabê-lo
+
+variavel_string = <span class="hljs-string">'sou string'</span>
+type(variavel_string)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>String
+
+</code></pre>
+<p class="has-line-data" data-line-start="155" data-line-end="157">Também é possível transformar variáveis numéricas do tipo float, por exemplo,<br>
+em inteiro</p>
+<h3 class="code-line" data-line-start=158 data-line-end=159><a id="Bibliotecas_158"></a>Bibliotecas</h3>
+<blockquote>
+<p class="has-line-data" data-line-start="160" data-line-end="161">Bibliotecas são conjuntos de funções criadas para resolver determinado problema</p>
+</blockquote>
+<p class="has-line-data" data-line-start="162" data-line-end="163">Qual a diferença entre uma biblioteca e um framework</p>
+<p class="has-line-data" data-line-start="164" data-line-end="165">Frameworks são um conjunto de estruturas (modelos de projeto, funções, rotinas pré-definidas)</p>
+<p class="has-line-data" data-line-start="166" data-line-end="167">Fica mais fácil abstrair quando se compara com um códigos de programadores que já passaram pelos mesmo problema que você e estão tiveram a boa vontade de agrupar essas repetições e disponibilzar para os próximos. Ex: Django</p>
+<blockquote>
+<ul>
+<li class="has-line-data" data-line-start="168" data-line-end="169">Bibliotecas Importantes</li>
+</ul>
+</blockquote>
+<pre><code>- sys
+- os
+- smtplib(Enviar email)
+- urllib.request (Acessar internet)</code></pre>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
