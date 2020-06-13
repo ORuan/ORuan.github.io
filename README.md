@@ -1,9 +1,6 @@
 # Roteiro Live-Python
 
----
-
-Referências: https://docs.python.org/pt-br/3/tutorial/,
-                    https://edisciplinas.usp.br/mod/folder/view.php?id=36176
+Referências: https://docs.python.org/pt-br/3/tutorial/, https://edisciplinas.usp.br/mod/folder/view.php?id=36176
 
 ## Introdução
 
@@ -49,7 +46,7 @@ e só dar next next
 
 ```
 
-![Roteiro%20Live%20Python%20118f376ed0724b449415c0349da03b44/Untitled.png](Roteiro%20Live%20Python%20118f376ed0724b449415c0349da03b44/Untitled.png)
+![](https://raw.githubusercontent.com/ORuan/ORuan.github.io/master/Roteiro%20Live%20Python%20c1bba646130a4d368d8988654ede6f58/Untitled.png)
 
 Módulos e formas de execução
 
@@ -65,7 +62,7 @@ python3 -c "COMANDO/CÓDIGO"
 
 Qual a diferença entre uma biblioteca e um framework
 
-Frameworks são conjunto de estruturas [modelos de projeto, funções, rotinas pré-definidas]
+Frameworks são conjunto de estruturas (modelos de projeto, funções, rotinas pré-definidas)
 
 Fica mais fácil abstrair quando se compara com um códigos de programadores que já passaram pelos mesmo problema que você e estão tiveram a boa vontade de agrupar essas repetições e disponibilzar para os próximos. Ex: Django
 
@@ -122,8 +119,13 @@ else:
 i = [1,2,3,4,5,6]
 for index in i:
    print(index)
-   #espera-se que retorne 1...2...3...4...5...6
-
+   #espera-se que retorne:
+   #1
+   #2
+   #3
+   #4
+   #5
+   #6
 #----------------------Usando Range()----------------
 
 i = 0
