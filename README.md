@@ -56,21 +56,7 @@ python3 -m "module" for execute modules
 python3 -c "COMANDO/CÓDIGO"
 ```
 
-### Bibliotecas
 
-> Bibliotecas são conjuntos de funções criadas para resolver determinado problema
-
-Qual a diferença entre uma biblioteca e um framework
-
-Frameworks são conjunto de estruturas (modelos de projeto, funções, rotinas pré-definidas)
-
-Fica mais fácil abstrair quando se compara com um códigos de programadores que já passaram pelos mesmo problema que você e estão tiveram a boa vontade de agrupar essas repetições e disponibilzar para os próximos. Ex: Django
-
-- [ ]  Bibliotecas Importantes
-    - sys
-    - os
-    - smtplib(Enviar email)
-    - urllib.request (Acessar internet)
 
 Conceitos básicos
 
@@ -84,7 +70,7 @@ Tipagem dinâmica
     - Tipos 'Complexos'
         - Dic
         - Array
-        - Tuple
+        - Tuple(Me lembrem de explica rapaziada, é importante)
 
 ### Objects
 
@@ -128,7 +114,10 @@ for index in i:
    #6
 #----------------------Usando Range()----------------
 
+
+#Sintaxe da função range( <inicio>, <fim>, <passo> )
 i = 0
+
 for range(5):
     print(i)
     i = i+1
@@ -147,5 +136,38 @@ Que podemos atribuir uma função a uma variável, podemos passar uma função c
 ```python
 def doble(number):
     return number*2
-    #espera-se que retorne 4 se eu number for 2
+    #espera-se que retorne 4 se eu number for 2    
 ```
+
+
+
+## Para lembrar
+
+``` python
+Se trantando de uma linguagem de altíssimo nível e de tipagem
+dinâmica, nao precisar definir o tipo não significa no entanto
+que quem desenvolve não precisa sabê-lo
+
+variavel_string = 'sou string'
+type(variavel_string)
+>>> String
+
+```
+Também é possível transformar variáveis numéricas do tipo float, por exemplo,
+em inteiro
+
+### Bibliotecas
+
+> Bibliotecas são conjuntos de funções criadas para resolver determinado problema
+
+Qual a diferença entre uma biblioteca e um framework
+
+Frameworks são um conjunto de estruturas (modelos de projeto, funções, rotinas pré-definidas)
+
+Fica mais fácil abstrair quando se compara com um códigos de programadores que já passaram pelos mesmo problema que você e estão tiveram a boa vontade de agrupar essas repetições e disponibilzar para os próximos. Ex: Django
+
+>- Bibliotecas Importantes
+    - sys
+    - os
+    - smtplib(Enviar email)
+    - urllib.request (Acessar internet)
